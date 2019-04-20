@@ -16,7 +16,7 @@ public class EnvironmentSetup {
     public static ChromeOptions options;
     public static Actions action;
     public static WebDriverWait wait;
-    public static JavascriptExecutor js = driver;
+    public static JavascriptExecutor js;
 
     @BeforeTest
     @Ignore

@@ -19,7 +19,7 @@ public class MyTest extends helper.EnvironmentSetup {
     @Test
     public void TestForMenu() {
         MainPage.goToUrl();
-        //MainPage.closePopupLanguageWindow();
+        MainPage.closePopupLanguageWindow();
         MainPage.goToBigDataFromSandwichMenu();
         assertEquals(driver.getTitle(), "Big Data | Oracle");
         assertTrue(BigDataMenuPage.checkBigDataHeadingIsDisplayed());
