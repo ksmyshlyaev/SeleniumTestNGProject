@@ -14,7 +14,7 @@ import static org.testng.Assert.*;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.fail;
 
-public class MyTestClass extends helper.EnvironmentSetup {
+public class MyTest extends helper.EnvironmentSetup {
 
     @Test
     public void TestForMenu() {
