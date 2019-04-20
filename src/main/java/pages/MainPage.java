@@ -27,7 +27,7 @@ public class MainPage extends EnvironmentSetup {
     public static void closePopupLanguageWindow(){
         try{
             wait = new WebDriverWait(driver, 5);
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath(Locators.closeButtonOnLanguageWindow)));
+            wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(Locators.closeButtonOnLanguageWindow))));
 
         } catch(TimeoutException e){
             fail(e.toString());
