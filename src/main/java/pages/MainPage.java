@@ -3,6 +3,7 @@ package pages;
 import helper.EnvironmentSetup;
 import helper.Locators;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -24,18 +25,20 @@ public class MainPage extends EnvironmentSetup {
     }
 
     public static void closePopupLanguageWindow(){
-        wait = new WebDriverWait(driver, 10);
-        try {
-            wait.until(ExpectedConditions.presenceOfElementLocated((By.xpath(Locators.closeButtonOnLanguageWindow))));
-            if (driver.findElement(By.xpath(Locators.closeButtonOnLanguageWindow)).isDisplayed()){
-                driver.findElement(By.xpath(Locators.closeButtonOnLanguageWindow)).click();}
+        try{
+            wait = new WebDriverWait(driver, 5);
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath(Locators.closeButtonOnLanguageWindow)));
+
+        } catch(TimeoutException e){
+            fail(e.toString());
         }
-        catch (TimeoutException exception){
-            fail(exception.toString());
+        if (driver.findElement(By.xpath(Locators.closeButtonOnLanguageWindow)).isDisplayed()) {
+            driver.findElement(By.xpath(Locators.closeButtonOnLanguageWindow)).click();
         }
+
     }
 
-    public static void goToBigDataFromSandwichMenu() throws InterruptedException {
+    public static void goToBigDataFromSandwichMenu() {
         action = new Actions(driver);
 
         action.moveToElement(driver.findElement(By.cssSelector(Locators.sandwichMenuCssSelector))).pause(1000).perform();
