@@ -19,7 +19,6 @@ public class EnvironmentSetup {
     public static JavascriptExecutor js;
 
     @BeforeTest
-    @Ignore
     public void setUp(){
         String driverPath = "\\src\\main\\resources\\drivers\\chromedriver.exe";
         String workingDir = System.getProperty("user.dir");
@@ -31,7 +30,6 @@ public class EnvironmentSetup {
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
 
-    @Ignore
     @AfterTest
     public void close(){
         driver.quit();

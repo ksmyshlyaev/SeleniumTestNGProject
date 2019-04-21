@@ -25,4 +25,9 @@ public class MyTest extends helper.EnvironmentSetup {
         assertTrue(BigDataMenuPage.checkBigDataHeadingIsDisplayed());
     }
 
+    @Test
+    public void SimpleTest() {
+        driver.get("https://oracle.com");
+        assertEquals(driver.getTitle(), "Oracle | Integrated Cloud Applications and Platform Services");
+    }
 }
