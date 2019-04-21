@@ -1,5 +1,6 @@
 import helper.EnvironmentSetup;
 import helper.Locators;
+import io.qameta.allure.Description;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,6 +27,7 @@ public class MyTest extends helper.EnvironmentSetup {
     }
 
     @Test
+    @Description("Just to add more green color to reports...")
     public void SimpleTest() {
         driver.get("https://oracle.com");
         assertEquals(driver.getTitle(), "Oracle | Integrated Cloud Applications and Platform Services");
