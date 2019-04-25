@@ -18,8 +18,8 @@ public class ITInterestPage extends EnvironmentSetup {
 
     public static void selectMachineLearningIcon() {
         try {
-            wait = new WebDriverWait(driver, 10);
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(Locators.machineLearningButtonXPath)));
+            wait = new WebDriverWait(driver, 30);
+            wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(Locators.machineLearningButtonXPath))));
         }
         catch (TimeoutException e){
             Assert.fail(e.toString());
@@ -30,7 +30,7 @@ public class ITInterestPage extends EnvironmentSetup {
     public static String getMachineLearningText() {
         try {
             wait = new WebDriverWait(driver, 10);
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(Locators.machineLearningFormTextXPath)));
+            wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.xpath(Locators.machineLearningFormTextXPath)), "As your personal data concierge"));
         }
         catch (TimeoutException e){
             Assert.fail(e.toString());

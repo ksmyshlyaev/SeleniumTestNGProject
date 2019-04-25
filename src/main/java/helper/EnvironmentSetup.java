@@ -26,6 +26,8 @@ public class EnvironmentSetup {
         options  = new ChromeOptions();
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
+        //driver = new ChromeDriver();
+        action = new Actions(driver);
         js = (JavascriptExecutor) driver;
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);

@@ -17,6 +17,21 @@ public class MainPage extends EnvironmentSetup {
         driver.get(MainPage.url);
     }
 
+    public static void goToSignInPage() {
+
+        action.moveToElement(driver.findElement(By.cssSelector(Locators.signInButtonMainPageCssSelector))).pause(1000).perform();
+        /*try{
+            wait = new WebDriverWait(driver, 8);
+
+            action.moveToElement(driver.findElement(By.xpath(Locators.signInToMyAccountButtonXPath))).pause(1000).perform();
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Locators.signInToMyAccountButtonXPath)));
+
+        } catch(TimeoutException e){
+            fail(e.toString());
+        }*/
+        driver.findElement(By.xpath(Locators.signInToMyAccountButtonXPath)).click();
+    }
+
     public static void goToItInterest() {
 
         WebElement itInterest = driver.findElement(By.cssSelector(Locators.interestItButtonCssSelector));
@@ -27,24 +42,27 @@ public class MainPage extends EnvironmentSetup {
     public static void closePopupLanguageWindow(){
         try{
             wait = new WebDriverWait(driver, 5);
-            wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(Locators.closeButtonOnLanguageWindow))));
+            wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(Locators.closeButtonOnLanguageWindowXPath))));
 
         } catch(TimeoutException e){
             fail(e.toString());
         }
-        if (driver.findElement(By.xpath(Locators.closeButtonOnLanguageWindow)).isDisplayed()) {
-            driver.findElement(By.xpath(Locators.closeButtonOnLanguageWindow)).click();
-        }
-
+            driver.findElement(By.xpath(Locators.closeButtonOnLanguageWindowXPath)).click();
     }
 
     public static void goToBigDataFromSandwichMenu() {
-        action = new Actions(driver);
 
         action.moveToElement(driver.findElement(By.cssSelector(Locators.sandwichMenuCssSelector))).pause(1000).perform();
         action.moveToElement(driver.findElement(By.xpath(Locators.solutionsButtonXPath))).pause(1000).perform();
         action.moveToElement(driver.findElement(By.xpath(Locators.bigDataButtonXPath))).click().perform();
 
-        }
     }
+
+    public static void clickJobsAtOracleButton(){
+        wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath(Locators.jobsAtOracleLinkXPath))));
+        driver.findElement(By.xpath(Locators.jobsAtOracleLinkXPath)).click();
+    }
+
+}
 
