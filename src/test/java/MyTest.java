@@ -33,7 +33,7 @@ public class MyTest extends helper.EnvironmentSetup {
                 "your workloads and keeps track of who can access your data. It knows when you need more capacity and how to optimize performance.");
     }
 
-    @Test(description = "this test will always fall in headless mode. meh.")
+    @Test
     public void SignInWithWrongCredentials() {
         MainPage.goToUrl();
         MainPage.closePopupLanguageWindow();

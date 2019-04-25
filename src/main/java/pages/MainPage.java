@@ -20,15 +20,6 @@ public class MainPage extends EnvironmentSetup {
     public static void goToSignInPage() {
 
         action.moveToElement(driver.findElement(By.cssSelector(Locators.signInButtonMainPageCssSelector))).pause(1000).perform();
-        /*try{
-            wait = new WebDriverWait(driver, 8);
-
-            action.moveToElement(driver.findElement(By.xpath(Locators.signInToMyAccountButtonXPath))).pause(1000).perform();
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(Locators.signInToMyAccountButtonXPath)));
-
-        } catch(TimeoutException e){
-            fail(e.toString());
-        }*/
         driver.findElement(By.xpath(Locators.signInToMyAccountButtonXPath)).click();
     }
 
