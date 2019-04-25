@@ -39,6 +39,6 @@ public class MyTest extends helper.EnvironmentSetup {
         MainPage.closePopupLanguageWindow();
         MainPage.goToSignInPage();
         SignInPage.LogInOracleAccount("asdasdasd", "password123123123");
-        assertEquals(SignInPage.GetSignInErrorMessageText(), "Неправильное имя пользователя");
+        assertEquals(SignInPage.GetSignInErrorMessageText(), "Invalid login");
     }
 }

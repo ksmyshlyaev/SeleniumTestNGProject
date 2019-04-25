@@ -3,7 +3,7 @@ package helper;
 public class Locators {
     //Locators for the main page
     public static String interestItButtonCssSelector = ".icn-innovation";
-    public static String signInButtonMainPageCssSelector = ".u02signin";
+    public static String signInButtonMainPageCssSelector = ".u02toolsloggedout";
     public static String signInToMyAccountButtonXPath = "//a[@id=\"u02pfile-regs\" and contains(text(),'Sign in to my Account')]";
     public static String jobsAtOracleLinkXPath = "//a[@href=\"/corporate/careers/\"]//span";
     public static String progressIndicatorId = "progressIndicator";
