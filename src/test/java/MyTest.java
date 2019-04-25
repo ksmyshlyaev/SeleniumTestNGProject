@@ -1,19 +1,11 @@
-import helper.EnvironmentSetup;
 import helper.Locators;
 import io.qameta.allure.Description;
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
-import pages.BigDataMenuPage;
-import pages.MainPage;
+import pages.*;
 
 import static org.testng.Assert.*;
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.fail;
 
 public class MyTest extends helper.EnvironmentSetup {
 
@@ -31,5 +23,16 @@ public class MyTest extends helper.EnvironmentSetup {
     public void SimpleTest() {
         driver.get("https://oracle.com");
         assertEquals(driver.getTitle(), "Oracle | Integrated Cloud Applications and Platform Services");
+    }
+
+    @Test
+    public void CheckMachineLearningText() throws InterruptedException {
+        MainPage.goToUrl();
+        MainPage.goToItInterest();
+        ITInterestPage.selectLearnMoreAutonomousDatabase();
+        ITInterestPage.selectMachineLearningIcon();
+        Thread.sleep(1000);
+        assertEquals(ITInterestPage.getMachineLearningText(), "As your personal data concierge, Oracle Autonomous Database monitors " +
+                "your workloads and keeps track of who can access your data. It knows when you need more capacity and how to optimize performance.");
     }
 }

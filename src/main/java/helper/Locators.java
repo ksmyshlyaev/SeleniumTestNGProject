@@ -12,4 +12,9 @@ public class Locators {
 
     //Locators for Big Data menu item
     public static String bigDataHeadingXPath = "//div[@class='cw22-heading' and contains(text(),'Oracle Data Management Platforms')]";
+
+    //Locators for IT interest page
+    public static String learnMoreAutonomousDatabaseXPath = "//a[@data-lbl=\"cb27-learn-more\"]";
+    public static String machineLearningButtonXPath = "//a[@data-lbl=\"machine-learning\"]";
+    public static String machineLearningFormTextXPath ="//*[@id=\"machine-learning\"]//p";
 }

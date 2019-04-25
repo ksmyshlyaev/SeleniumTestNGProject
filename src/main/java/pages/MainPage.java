@@ -1,10 +1,9 @@
 package pages;
-
 import helper.EnvironmentSetup;
 import helper.Locators;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,7 +19,8 @@ public class MainPage extends EnvironmentSetup {
 
     public static void goToItInterest() {
 
-        js.executeScript("arguments[0].scrollIntoView();", driver.findElement(By.cssSelector(Locators.interestItButtonCssSelector)));
+        WebElement itInterest = driver.findElement(By.cssSelector(Locators.interestItButtonCssSelector));
+        js.executeScript("arguments[0].scrollIntoView();", itInterest);
         driver.findElement(By.cssSelector(Locators.interestItButtonCssSelector)).click();
     }
 
