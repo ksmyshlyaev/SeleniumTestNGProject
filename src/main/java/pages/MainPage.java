@@ -49,6 +49,12 @@ public class MainPage extends EnvironmentSetup {
 
     }
 
+    public static void goToEventsPage() {
+        WebElement eventsButton = driver.findElement(By.xpath(Locators.eventsButtonXPath));
+        js.executeScript("arguments[0].scrollIntoView();", eventsButton);
+        driver.findElement(By.xpath(Locators.eventsButtonXPath)).click();
+    }
+
     public static void clickJobsAtOracleButton(){
         wait = new WebDriverWait(driver, 5);
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath(Locators.jobsAtOracleLinkXPath))));

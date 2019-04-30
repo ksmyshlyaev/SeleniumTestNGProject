@@ -7,6 +7,7 @@ public class Locators {
     public static String signInToMyAccountButtonXPath = "//a[@id=\"u02pfile-regs\" and contains(text(),'Sign in to my Account')]";
     public static String jobsAtOracleLinkXPath = "//a[@href=\"/corporate/careers/\"]//span";
     public static String progressIndicatorId = "progressIndicator";
+    public static String eventsButtonXPath = "//a[@data-lbl=\"news-events:events\"]";
 
     //Locators for sandwich menu
     public static String sandwichMenuCssSelector = ".u02hamenu";
