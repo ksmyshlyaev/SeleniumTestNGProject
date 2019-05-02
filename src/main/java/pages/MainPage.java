@@ -2,6 +2,7 @@ package pages;
 import helper.EnvironmentSetup;
 import helper.Locators;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -38,6 +39,19 @@ public class MainPage extends EnvironmentSetup {
             fail(e.toString());
         }
             driver.findElement(By.xpath(Locators.closeButtonOnLanguageWindowXPath)).click();
+    }
+
+    public static void acceptCookies(){
+        try {
+            wait = new WebDriverWait(driver, 5);
+            wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(Locators.acceptCookiesButtonXPath))));
+
+        }
+        catch (NoSuchElementException e){
+            System.out.println("No cookies window appeared");
+        }
+        driver.findElement(By.xpath(Locators.acceptCookiesButtonXPath)).click();
+
     }
 
     public static void goToBigDataFromSandwichMenu() {

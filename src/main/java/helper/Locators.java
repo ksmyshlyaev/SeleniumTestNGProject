@@ -8,6 +8,8 @@ public class Locators {
     public static String jobsAtOracleLinkXPath = "//a[@href=\"/corporate/careers/\"]//span";
     public static String progressIndicatorId = "progressIndicator";
     public static String eventsButtonXPath = "//a[@data-lbl=\"news-events:events\"]";
+    //public static String acceptCookiesButtonXPath = "//a[@class=\"call\" and contains(text(),'Я принимаю все файлы cookie')]";
+    public static String acceptCookiesButtonXPath = "/html/body/div[8]/div[1]/div/div[2]/div[2]/a[1]";
 
     //Locators for sandwich menu
     public static String sandwichMenuCssSelector = ".u02hamenu";

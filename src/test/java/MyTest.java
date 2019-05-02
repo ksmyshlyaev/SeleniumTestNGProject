@@ -10,13 +10,14 @@ public class MyTest extends helper.EnvironmentSetup {
     @Test
     public void TestForMenu() {
         MainPage.goToUrl();
+        //MainPage.acceptCookies();
         //MainPage.closePopupLanguageWindow();
         MainPage.goToBigDataFromSandwichMenu();
         assertEquals(driver.getTitle(), "Big Data | Oracle");
         assertTrue(BigDataMenuPage.checkBigDataHeadingIsDisplayed());
     }
 
-    @Test
+    @Test(groups = "functest")
     @Description("Just to add more green color to reports...")
     public void CheckMainPageTitle() {
         MainPage.goToUrl();
