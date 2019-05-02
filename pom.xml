@@ -58,6 +58,9 @@
                             <value>${project.build.directory}/target/allure-results</value>
                         </property>
                     </systemPropertyVariables>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
                 </configuration>
                 <dependencies>
                     <dependency>
