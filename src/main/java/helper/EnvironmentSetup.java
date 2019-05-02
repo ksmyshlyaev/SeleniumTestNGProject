@@ -24,10 +24,10 @@ public class EnvironmentSetup {
         String driverPath = "\\src\\main\\resources\\drivers\\chromedriver.exe";
         String workingDir = System.getProperty("user.dir");
         System.setProperty("webdriver.chrome.driver", workingDir + driverPath);
-/*        options  = new ChromeOptions();
+        options  = new ChromeOptions();
         options.addArguments("--headless");
-        driver = new ChromeDriver(options);*/
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
+        //driver = new ChromeDriver();
         action = new Actions(driver);
         js = (JavascriptExecutor) driver;
         driver.manage().window().maximize();
