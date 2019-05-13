@@ -2,11 +2,11 @@
   
 <suite name="Suite1" verbose="1">
 	<test name="mytest">
-<!-- 		<groups>
+ 		<groups>
 			<run>
 				<include name="functest"/>
 			</run>
-		</groups> -->
+		</groups>
 		<classes>
 			<class name="MyTest"/>
 		</classes>

@@ -1,38 +1,45 @@
 package pages;
-import helper.EnvironmentSetup;
 import helper.Locators;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.testng.Assert.fail;
 
-public class MainPage extends EnvironmentSetup {
-    public static String url = "https://www.oracle.com";
+public class MainPage {
+    private WebDriver driver;
+    private JavascriptExecutor js;
+    private Actions action;
+    private WebDriverWait wait;
 
-    public static void goToUrl() {
-        driver.get(MainPage.url);
+    public MainPage(WebDriver driver, JavascriptExecutor js, Actions action, WebDriverWait wait){
+        this.driver = driver;
+        this.js = js;
+        this.action = action;
+        this.wait = wait;
     }
 
-    public static void goToSignInPage() {
+    public void goToUrl() {
+        String url = "https://www.oracle.com";
+        driver.get(url);
+    }
+
+    public void goToSignInPage() {
 
         action.moveToElement(driver.findElement(By.cssSelector(Locators.signInButtonMainPageCssSelector))).pause(1000).perform();
         driver.findElement(By.xpath(Locators.signInToMyAccountButtonXPath)).click();
     }
 
-    public static void goToItInterest() {
+    public void goToItInterest() {
 
         WebElement itInterest = driver.findElement(By.cssSelector(Locators.interestItButtonCssSelector));
         js.executeScript("arguments[0].scrollIntoView();", itInterest);
         driver.findElement(By.cssSelector(Locators.interestItButtonCssSelector)).click();
     }
 
-    public static void closePopupLanguageWindow(){
+    public void closePopupLanguageWindow(){
         try{
-            wait = new WebDriverWait(driver, 5);
             wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(Locators.closeButtonOnLanguageWindowXPath))));
 
         } catch(TimeoutException e){
@@ -41,9 +48,9 @@ public class MainPage extends EnvironmentSetup {
             driver.findElement(By.xpath(Locators.closeButtonOnLanguageWindowXPath)).click();
     }
 
-    public static void acceptCookies(){
+    public void acceptCookies(){
         try {
-            wait = new WebDriverWait(driver, 5);
+
             wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(Locators.acceptCookiesButtonXPath))));
 
         }
@@ -54,7 +61,7 @@ public class MainPage extends EnvironmentSetup {
 
     }
 
-    public static void goToBigDataFromSandwichMenu() {
+    public void goToBigDataFromSandwichMenu() {
 
         action.moveToElement(driver.findElement(By.cssSelector(Locators.sandwichMenuCssSelector))).pause(1000).perform();
         action.moveToElement(driver.findElement(By.xpath(Locators.solutionsButtonXPath))).pause(1000).perform();
@@ -62,14 +69,13 @@ public class MainPage extends EnvironmentSetup {
 
     }
 
-    public static void goToEventsPage() {
+    public void goToEventsPage() {
         WebElement eventsButton = driver.findElement(By.xpath(Locators.eventsButtonXPath));
         js.executeScript("arguments[0].scrollIntoView();", eventsButton);
         driver.findElement(By.xpath(Locators.eventsButtonXPath)).click();
     }
 
-    public static void clickJobsAtOracleButton(){
-        wait = new WebDriverWait(driver, 5);
+    public void clickJobsAtOracleButton(){
         wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath(Locators.jobsAtOracleLinkXPath))));
         driver.findElement(By.xpath(Locators.jobsAtOracleLinkXPath)).click();
     }

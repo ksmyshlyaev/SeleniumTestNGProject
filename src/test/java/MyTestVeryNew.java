@@ -9,8 +9,9 @@ public class MyTestVeryNew extends EnvironmentSetup {
 
     @Test
     public void CheckEventsPageTitle(){
-        MainPage.goToUrl();
-        MainPage.goToEventsPage();
+        MainPage mainPage = new MainPage(driver, js, action, wait);
+        mainPage.goToUrl();
+        mainPage.goToEventsPage();
         assertEquals(driver.getTitle(), "Events Search");
     }
 }

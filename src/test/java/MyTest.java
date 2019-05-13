@@ -7,39 +7,47 @@ import static org.testng.Assert.assertEquals;
 
 public class MyTest extends helper.EnvironmentSetup {
 
-    @Test
+    @Test(groups = "functest")
     public void TestForMenu() {
-        MainPage.goToUrl();
+
+        MainPage mainPage = new MainPage(driver, js, action, wait);
+        mainPage.goToUrl();
         //MainPage.acceptCookies();
         //MainPage.closePopupLanguageWindow();
-        MainPage.goToBigDataFromSandwichMenu();
+        mainPage.goToBigDataFromSandwichMenu();
+        BigDataMenuPage bigDataMenuPage = new BigDataMenuPage(driver, js, action, wait);
         assertEquals(driver.getTitle(), "Big Data | Oracle");
-        assertTrue(BigDataMenuPage.checkBigDataHeadingIsDisplayed());
+        assertTrue(bigDataMenuPage.checkBigDataHeadingIsDisplayed());
     }
 
     @Test(groups = "functest")
     @Description("Just to add more green color to reports...")
     public void CheckMainPageTitle() {
-        MainPage.goToUrl();
+        MainPage mainPage = new MainPage(driver, js, action, wait);
+        mainPage.goToUrl();
         assertEquals(driver.getTitle(), "Oracle | Integrated Cloud Applications and Platform Services");
     }
 
     @Test
     public void CheckMachineLearningText() {
-        MainPage.goToUrl();
-        MainPage.goToItInterest();
-        ITInterestPage.selectLearnMoreAutonomousDatabase();
-        ITInterestPage.selectMachineLearningIcon();
-        assertEquals(ITInterestPage.getMachineLearningText(), "As your personal data concierge, Oracle Autonomous Database monitors " +
+        MainPage mainPage = new MainPage(driver, js, action, wait);
+        mainPage.goToUrl();
+        mainPage.goToItInterest();
+        ITInterestPage itInterestPage = new ITInterestPage(driver, js, action, wait);
+        itInterestPage.selectLearnMoreAutonomousDatabase();
+        itInterestPage.selectMachineLearningIcon();
+        assertEquals(itInterestPage.getMachineLearningText(), "As your personal data concierge, Oracle Autonomous Database monitors " +
                 "your workloads and keeps track of who can access your data. It knows when you need more capacity and how to optimize performance.");
     }
 
     @Test
     public void SignInWithWrongCredentials() {
-        MainPage.goToUrl();
-        MainPage.closePopupLanguageWindow();
-        MainPage.goToSignInPage();
-        SignInPage.LogInOracleAccount("asdasdasd", "password123123123");
-        assertEquals(SignInPage.GetSignInErrorMessageText(), "Invalid login");
+        MainPage mainPage = new MainPage(driver, js, action, wait);
+        mainPage.goToUrl();
+        mainPage.closePopupLanguageWindow();
+        mainPage.goToSignInPage();
+        SignInPage signInPage = new SignInPage(driver, js, action, wait);
+        signInPage.LogInOracleAccount("asdasdasd", "password123123123");
+        assertEquals(signInPage.GetSignInErrorMessageText(), "Invalid login");
     }
 }

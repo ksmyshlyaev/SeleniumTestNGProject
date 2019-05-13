@@ -1,22 +1,34 @@
 package pages;
 
-import helper.EnvironmentSetup;
 import helper.Locators;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-public class ITInterestPage extends EnvironmentSetup {
+public class ITInterestPage {
 
-    public static String url = "https://www.oracle.com/area-of-interest/it.html";
+    private WebDriver driver;
+    private JavascriptExecutor js;
+    private Actions action;
+    private WebDriverWait wait;
 
-    public static void selectLearnMoreAutonomousDatabase() {
+    public ITInterestPage(WebDriver driver, JavascriptExecutor js, Actions action, WebDriverWait wait){
+        this.driver = driver;
+        this.js = js;
+        this.action = action;
+        this.wait = wait;
+    }
+
+    public void selectLearnMoreAutonomousDatabase() {
         driver.findElement(By.xpath(Locators.learnMoreAutonomousDatabaseXPath)).click();
     }
 
-    public static void selectMachineLearningIcon() {
+    public void selectMachineLearningIcon() {
         try {
             wait = new WebDriverWait(driver, 30);
             wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(Locators.machineLearningButtonXPath))));
@@ -27,9 +39,8 @@ public class ITInterestPage extends EnvironmentSetup {
         driver.findElement(By.xpath(Locators.machineLearningButtonXPath)).click();
     }
 
-    public static String getMachineLearningText() {
+    public String getMachineLearningText() {
         try {
-            wait = new WebDriverWait(driver, 10);
             wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.xpath(Locators.machineLearningFormTextXPath)), "As your personal data concierge"));
         }
         catch (TimeoutException e){
