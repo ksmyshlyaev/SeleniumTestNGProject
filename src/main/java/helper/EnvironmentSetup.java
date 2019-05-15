@@ -12,22 +12,24 @@ import java.util.concurrent.TimeUnit;
 
 public class EnvironmentSetup {
 
-    protected static WebDriver driver;
-    protected static ChromeOptions options;
-    protected static Actions action;
-    protected static WebDriverWait wait;
-    protected static JavascriptExecutor js;
+    public WebDriver driver;
+    public ChromeOptions options;
+    public Actions action;
+    public WebDriverWait wait;
+    public JavascriptExecutor js;
 
-    @BeforeSuite
+    @BeforeClass
     public void setUp(){
         String driverPath = "\\src\\main\\resources\\drivers\\chromedriver.exe";
         String workingDir = System.getProperty("user.dir");
         System.setProperty("webdriver.chrome.driver", workingDir + driverPath);
 
+/*
         options  = new ChromeOptions();
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
-        //driver = new ChromeDriver();
+*/
+        driver = new ChromeDriver();
 
         action = new Actions(driver);
         wait = new WebDriverWait(driver, 5);
@@ -36,7 +38,7 @@ public class EnvironmentSetup {
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
 
-    @AfterSuite
+    @AfterClass
     public void close(){
         driver.quit();
 

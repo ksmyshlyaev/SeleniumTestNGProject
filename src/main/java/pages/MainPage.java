@@ -40,12 +40,21 @@ public class MainPage {
 
     public void closePopupLanguageWindow(){
         try{
+            driver.findElement(By.xpath(Locators.closeButtonOnLanguageWindowXPath)).click();
+
+        } catch(StaleElementReferenceException e){
+            driver.findElement(By.xpath(Locators.closeButtonOnLanguageWindowXPath)).click();
+        }
+
+/*        try{
             wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(Locators.closeButtonOnLanguageWindowXPath))));
 
         } catch(TimeoutException e){
             fail(e.toString());
-        }
-            driver.findElement(By.xpath(Locators.closeButtonOnLanguageWindowXPath)).click();
+        }*/
+
+
+
     }
 
     public void acceptCookies(){

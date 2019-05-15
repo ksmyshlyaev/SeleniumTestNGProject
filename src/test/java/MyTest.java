@@ -13,7 +13,7 @@ public class MyTest extends helper.EnvironmentSetup {
         MainPage mainPage = new MainPage(driver, js, action, wait);
         mainPage.goToUrl();
         //MainPage.acceptCookies();
-        //MainPage.closePopupLanguageWindow();
+        //mainPage.closePopupLanguageWindow();
         mainPage.goToBigDataFromSandwichMenu();
         BigDataMenuPage bigDataMenuPage = new BigDataMenuPage(driver, js, action, wait);
         assertEquals(driver.getTitle(), "Big Data | Oracle");
@@ -48,6 +48,6 @@ public class MyTest extends helper.EnvironmentSetup {
         mainPage.goToSignInPage();
         SignInPage signInPage = new SignInPage(driver, js, action, wait);
         signInPage.LogInOracleAccount("asdasdasd", "password123123123");
-        assertEquals(signInPage.GetSignInErrorMessageText(), "Invalid login");
+        assertEquals(signInPage.GetSignInErrorMessageText(), "Неправильное имя пользователя");
     }
 }

@@ -25,6 +25,13 @@ public class ITInterestPage {
     }
 
     public void selectLearnMoreAutonomousDatabase() {
+        try {
+            wait = new WebDriverWait(driver, 30);
+            wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(Locators.learnMoreAutonomousDatabaseXPath))));
+        }
+        catch (TimeoutException e){
+            Assert.fail(e.toString());
+        }
         driver.findElement(By.xpath(Locators.learnMoreAutonomousDatabaseXPath)).click();
     }
 

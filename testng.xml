@@ -1,12 +1,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
   
-<suite name="Suite1" verbose="1">
+<suite name="Suite1" verbose="1" parallel="tests" thread-count="2">
 	<test name="mytest">
- 		<groups>
+<!--  		<groups>
 			<run>
 				<include name="functest"/>
 			</run>
-		</groups>
+		</groups> -->
 		<classes>
 			<class name="MyTest"/>
 		</classes>
